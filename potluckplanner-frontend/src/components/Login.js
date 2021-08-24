@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import * as yup from 'yup'
+import loginSchema from '../validation/loginSchema'
 
 export default function Login() {
     const [loginValues, setLoginValues] = useState({
@@ -6,7 +8,29 @@ export default function Login() {
         password: ""
     })
 
+    const [disabled, setDisabled] = useState(true)
+
+    const [loginErrors, setLoginErrors] = useState({
+        username: "",
+        password: ""
+    })
+
     const update = event => {
+        yup.reach(loginSchema, event.target.name)
+            .validate(event.target.value)
+            .then(() => {
+                setLoginErrors({
+                    ...loginErrors,
+                    [event.target.name]: ""
+                })
+            })
+            .catch(error => {
+                setLoginErrors({
+                    ...loginErrors,
+                    [event.target.name]: error.message
+                })
+            })
+
         setLoginValues({ 
             ...loginValues, 
             [event.target.name]: event.target.value 
@@ -21,6 +45,14 @@ export default function Login() {
             password: ""
         })
     }
+
+    useEffect(() => {
+        loginSchema
+        .isValid(loginValues)
+        .then(isSchemaValid => {
+            setDisabled(!isSchemaValid)
+        })
+    })
 
     return (
         <div className="login">
@@ -45,7 +77,15 @@ export default function Login() {
                         onChange={update}
                     />
                 </label>
-                <button>Submit</button>
+                <div>
+                    <button disabled={disabled}>Submit</button>
+                    <div className="errors">
+                        <ul>
+                            <li>{loginErrors.username}</li>
+                            <li>{loginErrors.password}</li>
+                        </ul>
+                    </div> 
+                </div>
             </form>
         </div>
     )
