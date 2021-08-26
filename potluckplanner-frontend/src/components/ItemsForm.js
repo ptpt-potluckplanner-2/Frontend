@@ -12,6 +12,9 @@ function ItemsForm(props) {
             event.preventDefault()
             const newItem = {...itemForm, id: uuid() }
             props.addItem(newItem)
+            setItemForm({
+                item:'', person: "", numOfGuests: ''
+            })
     }
 
     const handleChange = (evt) => {

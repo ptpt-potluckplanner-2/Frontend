@@ -18,9 +18,14 @@ function App() {
             <Registration />
             <Login />
             {/* wasn't sure about the route to use I figured it will be routed from the Events form page Just here for dispaly until other route is finished */}
-            <Items />
+            {/* <Items /> */}
+            <Route 
+            path='/itemlist'
+            component={Items}
+            />
         </div>
         </Router>
+
     )
 }
 
