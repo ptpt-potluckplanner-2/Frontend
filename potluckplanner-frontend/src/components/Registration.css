@@ -1,0 +1,20 @@
+.registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-form label {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.registration-form input {
+  margin-left: 5px;
+  height: 30px;
+}
+
+.registration-form button {
+  margin-top: 5px;
+  width: 90px;
+  height: 30px;
+}
