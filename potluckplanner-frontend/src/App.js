@@ -13,7 +13,7 @@ function App() {
             <Switch>
                 <Navbar/>
             </Switch>
-            <Login />
+            <Route path='/login' component={Login}/>
         </div>
         </Router>
     )
