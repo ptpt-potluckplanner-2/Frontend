@@ -14,7 +14,8 @@ function App() {
             <Switch>
                 <Navbar/>
             </Switch>
-            <Registration />
+            <Route path='/signup' component={Registration} />
+            
             <Login />
         </div>
         </Router>
