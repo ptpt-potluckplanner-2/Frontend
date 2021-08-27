@@ -93,11 +93,9 @@ export default function Registration() {
                 <div>
                     <button disabled={disabled}>Submit</button>
                     <div className="errors">
-                        <ul>
-                            <li>{registrationErrors.username}</li>
-                            <li>{registrationErrors.email}</li>
-                            <li>{registrationErrors.password}</li>
-                        </ul>
+                        <div>{registrationErrors.username}</div>
+                        <div>{registrationErrors.email}</div>
+                        <div>{registrationErrors.password}</div>
                     </div> 
                 </div>
             </form>
