@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as yup from 'yup'
 import loginSchema from '../validation/loginSchema'
+import "./Login.css"
 
 export default function Login() {
     const [loginValues, setLoginValues] = useState({
