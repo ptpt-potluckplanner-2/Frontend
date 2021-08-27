@@ -80,10 +80,8 @@ export default function Login() {
                 <div>
                     <button disabled={disabled}>Submit</button>
                     <div className="errors">
-                        <ul>
-                            <li>{loginErrors.username}</li>
-                            <li>{loginErrors.password}</li>
-                        </ul>
+                        <div>{loginErrors.username}</div>
+                        <div>{loginErrors.password}</div>
                     </div> 
                 </div>
             </form>
