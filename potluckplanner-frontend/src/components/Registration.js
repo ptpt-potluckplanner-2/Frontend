@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as yup from 'yup'
 import registrationSchema from '../validation/registrationSchema'
+import "./Registration.css"
 
 export default function Registration() {
     const [registrationValues, setRegistrationValues] = useState({
@@ -80,7 +81,6 @@ export default function Registration() {
                         onChange={update}
                     />
                 </label>
-
                 <label>
                     Password:
                     <input 
@@ -93,11 +93,9 @@ export default function Registration() {
                 <div>
                     <button disabled={disabled}>Submit</button>
                     <div className="errors">
-                        <ul>
-                            <li>{registrationErrors.username}</li>
-                            <li>{registrationErrors.email}</li>
-                            <li>{registrationErrors.password}</li>
-                        </ul>
+                        <div>{registrationErrors.username}</div>
+                        <div>{registrationErrors.email}</div>
+                        <div>{registrationErrors.password}</div>
                     </div> 
                 </div>
             </form>
