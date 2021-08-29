@@ -16,9 +16,15 @@ function App() {
                 <Navbar/>
             </Switch>
 
+
             <Route path='/login' component={Login}/>
 
             
+
+            <Route path='/signup' component={Registration} />
+            
+            <Login />
+
             {/* wasn't sure about the route to use I figured it will be routed from the Events form page Just here for dispaly until other route is finished */}
             {/* <Items /> */}
             <Route 
