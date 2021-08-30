@@ -18,18 +18,10 @@ function App() {
             </Switch>
 
             <Route path='/'><Home /></Route>
-            <Registration />
-
-
-
+           
             <Route path='/login' component={Login}/>
 
-            
-
-            <Route path='/signup' component={Registration} />
-            
-
-            <Login />
+            <Route path='/signup' component={Registration} />            
 
             {/* wasn't sure about the route to use I figured it will be routed from the Events form page Just here for dispaly until other route is finished */}
             {/* <Items /> */}
