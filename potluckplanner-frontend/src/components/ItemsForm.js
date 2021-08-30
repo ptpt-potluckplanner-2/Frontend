@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import { v4 as uuid } from 'uuid';
+import * as yup from 'yup';
+import schema from '../validation/itemsSchema'
 
 const initialFormValues = {
      item:'', person: "", numOfGuests: ''
@@ -10,14 +12,16 @@ function ItemsForm(props) {
 
     const handleSubmit = (event) => {
             event.preventDefault()
+
             const newItem = {...itemForm, id: uuid() }
+            
             props.addItem(newItem)
-            setItemForm({
-                item:'', person: "", numOfGuests: ''
-            })
+            setItemForm(initialFormValues)
     }
 
     const handleChange = (evt) => {
+        yup.reach(schema, evt.target.name)
+        .validate(evt.target.value)
             setItemForm({...itemForm, [evt.target.name]: evt.target.value})
     }
     return (
