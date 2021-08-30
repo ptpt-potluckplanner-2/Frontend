@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import Items from './components/Items'
+import Home from './components/Home';
 
 import './App.css';
 
@@ -16,6 +17,10 @@ function App() {
                 <Navbar/>
             </Switch>
 
+            <Route path='/'><Home /></Route>
+            <Registration />
+
+
 
             <Route path='/login' component={Login}/>
 
@@ -23,6 +28,7 @@ function App() {
 
             <Route path='/signup' component={Registration} />
             
+
             <Login />
 
             {/* wasn't sure about the route to use I figured it will be routed from the Events form page Just here for dispaly until other route is finished */}
